@@ -126,6 +126,18 @@ select {
   text-align: center;
 }
 
+.category {
+  margin-top: 18px;
+}
+
+.category h3 {
+  margin: 8px 0 12px;
+  font-size: 18px;
+  color: #333;
+  border-bottom: 1px solid #eef2ff;
+  padding-bottom: 8px;
+}
+
 @media (max-width: 900px) {
   .card {
     flex-direction: column;
@@ -136,3 +148,5 @@ select {
     flex: none;
   }
 }
+
+

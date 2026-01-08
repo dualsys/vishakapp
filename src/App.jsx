@@ -57,34 +57,56 @@ function App() {
         </p>
 
         <form onSubmit={handleSubmit}>
-          <div className="grid">
-            <Counter label="Study Hours / Day" name="study_hours_per_day" min={0} max={12} value={formData.study_hours_per_day || 5} onChange={updateValue} />
-            <Counter label="Sleep Hours" name="sleep_hours" min={0} max={12} value={formData.sleep_hours || 7} onChange={updateValue} />
-            <Counter label="Attendance %" name="attendance_percentage" min={0} max={100} value={formData.attendance_percentage || 85} onChange={updateValue} />
-            <Counter label="Motivation Level" name="motivation_level" min={0} max={10} value={formData.motivation_level || 7} onChange={updateValue} />
-            <Counter label="Stress Level" name="stress_level" min={0} max={10} value={formData.stress_level || 4} onChange={updateValue} />
-            <Counter label="Screen Time (hrs)" name="screen_time" min={0} max={12} value={formData.screen_time || 5} onChange={updateValue} />
+          <div className="category">
+            <h3>Behaviour</h3>
+            <div className="grid">
+              <Counter label="Study Hours / Day" name="study_hours_per_day" min={0} max={12} value={formData.study_hours_per_day || 5} onChange={updateValue} />
+              <Counter label="Sleep Hours" name="sleep_hours" min={0} max={12} value={formData.sleep_hours || 7} onChange={updateValue} />
+              <Counter label="Attendance %" name="attendance_percentage" min={0} max={100} value={formData.attendance_percentage || 85} onChange={updateValue} />
+              <Counter label="Screen Time (hrs)" name="screen_time" min={0} max={12} value={formData.screen_time || 5} onChange={updateValue} />
+            </div>
+          </div>
+          <div className="category">
+            <h3>Cognitive</h3>
+            <div className="grid">
+              <Counter label="Motivation Level" name="motivation_level" min={0} max={10} value={formData.motivation_level || 7} onChange={updateValue} />
+              
+              <div className="field">
+                <label>Learning Style</label>
+                <select onChange={(e) => updateValue("learning_style", e.target.value)} value={formData.learning_style || ""}>
+                  <option value="">Select</option>
+                  <option>Visual</option>
+                  <option>Auditory</option>
+                  <option>Reading</option>
+                  <option>Kinesthetic</option>
+                </select>
+              </div>
+            </div>
           </div>
 
-          <div className="field">
-            <label>Learning Style</label>
-            <select onChange={(e) => updateValue("learning_style", e.target.value)}>
-              <option value="">Select</option>
-              <option>Visual</option>
-              <option>Auditory</option>
-              <option>Reading</option>
-              <option>Kinesthetic</option>
-            </select>
+          
+
+          <div className="category">
+            <h3>Emotion</h3>
+            <div className="grid">
+              <Counter label="Stress Level" name="stress_level" min={0} max={10} value={formData.stress_level || 4} onChange={updateValue} />
+              
+            </div>
           </div>
 
-          <div className="field">
-            <label>Study Environment</label>
-            <select onChange={(e) => updateValue("study_environment", e.target.value)}>
-              <option value="">Select</option>
-              <option>Quiet</option>
-              <option>Moderate</option>
-              <option>Noisy</option>
-            </select>
+          <div className="category">
+            <h3>Supporting</h3>
+            <div className="grid">
+              <div className="field">
+                <label>Study Environment</label>
+                <select onChange={(e) => updateValue("study_environment", e.target.value)} value={formData.study_environment || ""}>
+                  <option value="">Select</option>
+                  <option>Quiet</option>
+                  <option>Moderate</option>
+                  <option>Noisy</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <button className="predict-btn" type="submit">
